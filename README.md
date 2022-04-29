@@ -58,7 +58,7 @@ Why go through the painful server setup, when you can use a simple recipe? That'
 8. Click 'Next'. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-5.png)
 9. Type a name for your server and click 'Next'
 10. Select to use a 'Remote URL Template'. ![enter image description here](https://i.gyazo.com/4022332cac1f6611d325707b27452910.png)
-11. Copy and paste `https://raw.githubusercontent.com/AndrewR3K/vorp_txAdminRecipe/main/vorp_recipe_qadr.yaml` into the url field. ![enter image description here](https://i.gyazo.com/2a77dc66fa5c5279a4458daab59b3ba5.png)
+11. Copy and paste `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_qadr.yaml` into the url field. ![enter image description here](https://i.gyazo.com/2a77dc66fa5c5279a4458daab59b3ba5.png)
 12. Click `Next`
 13. Keep the default path and click `Next`
 14. Click `Go to Recipe Deployer`
@@ -88,7 +88,7 @@ _Assuming you are SSHed into your machine or have otherwise access._
 10. Click 'Next'. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-5.png)
 11. Type a name for your server and click 'Next'
 12. Select to use a 'Remote URL Template'. ![enter image description here](https://i.gyazo.com/4022332cac1f6611d325707b27452910.png)
-13. Copy and paste `https://raw.githubusercontent.com/AndrewR3K/vorp_txAdminRecipe/main/vorp_recipe_qadr.yaml` into the url field. ![enter image description here](https://i.gyazo.com/2a77dc66fa5c5279a4458daab59b3ba5.png)
+13. Copy and paste `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_qadr.yaml` into the url field. ![enter image description here](https://i.gyazo.com/2a77dc66fa5c5279a4458daab59b3ba5.png)
 14. Click `Next`
 15. Keep the default path and click `Next`
 16. Click `Go to Recipe Deployer`
