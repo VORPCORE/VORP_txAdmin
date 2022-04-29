@@ -1,4 +1,3 @@
--- Vorp Core Lua Update
 DROP TABLE IF EXISTS `whitelist`;
 CREATE TABLE `whitelist`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,

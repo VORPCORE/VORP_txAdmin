@@ -1,0 +1,351 @@
+$engine: 3
+name: Vorpcore
+version: 1.1.0
+author: vorpcore
+description: VorpCore Official txAdmin recipe! This will set up a base vorp official server setup.
+
+tasks:
+#  Download Base Files
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP_txAdmin
+    ref: main
+    dest: ./tmp/vorp_txAdminRecipe
+  
+  - action: move_path
+    src: ./tmp/vorp_txAdminRecipe/server.cfg
+    dest: ./server.cfg
+  
+  - action: move_path
+    src: ./tmp/vorp_txAdminRecipe/vorp.png
+    dest: ./vorp.png
+
+# Prepare Database
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/vorp_txAdminRecipe/vorps.sql
+  
+# STANDALONE CFX
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    subpath: resources
+    dest: ./resources/[cfx-default]
+
+# Interiors - Interior fixes (Not Vorp official, but essential.)
+  - action: download_github
+    src: https://github.com/MissBehavin/interiors
+    ref: master
+    dest: ./resources/[cfx-default]/[gameplay]/interiors
+
+# ghmattimysql - Utilizing oxmysql port for better performance
+  - action: download_github
+    src: https://github.com/VORPCORE/ghmattimysql-oxmysql
+    ref: main
+    dest: ./resources/[sql]/ghmattimysql    
+
+# Vorp Core
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Core
+    ref: master
+    dest: ./tmp/VORP-Core
+      
+  - action: move_path
+    src: ./tmp/VORP-Core/build/vorp_core
+    dest: ./resources/[vorp]/vorp_core
+  
+# Vorp Inputs
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Inputs
+    ref: master
+    dest: ./tmp/VORP-Inputs    
+
+  - action: move_path
+    src: ./tmp/VORP-Inputs/VORP-Inputs/build/vorp_inputs
+    dest: ./resources/[vorp]/vorp_inputs    
+
+# Vorp characters
+  - action: download_file
+    path: ./tmp/vorp_character_working.zip
+    url: https://github.com/VORPCORE/VORP-Character/releases/download/v1.0.0/vorp_character_working.zip
+
+  - action: unzip
+    dest: ./tmp/vorp_character_working
+    src: ./tmp/vorp_character_working.zip    
+
+  - action: move_path
+    src: ./tmp/vorp_character_working/vorp_character
+    dest: ./resources/[vorp]/vorp_character    
+
+# Vorp Inventory
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Inventory
+    ref: master
+    dest: ./tmp/VORP-Inventory 
+
+  - action: move_path
+    src: ./tmp/VORP-Inventory/VORP-Inventory/Build/vorp_inventory/
+    dest: ./resources/[vorp]/vorp_inventory    
+    
+# Vorp Metabolism
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Metabolism
+    ref: master
+    dest: ./tmp/VORP-Metabolism 
+
+  - action: move_path
+    src: ./tmp/VORP-Metabolism/VORP-Metabolism/build/vorp_metabolism/
+    dest: ./resources/[vorp]/vorp_metabolism    
+    
+# Vorp ClothingStore
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-ClothingStore
+    ref: master
+    dest: ./tmp/VORP-ClothingStore
+
+  - action: move_path
+    src: ./tmp/VORP-ClothingStore/VORP-ClothingStore[Server-Client]/build/vorp_clothingstore/
+    dest: ./resources/[vorp]/vorp_clothingstore
+    
+# Vorp Stables
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Stables
+    ref: master
+    dest: ./tmp/VORP-Stables
+
+  - action: move_path
+    src: ./tmp/VORP-Stables/VORP-Stables[Client-Server]/build/vorp_stables/
+    dest: ./resources/[vorp]/vorp_stables
+    
+# Vorp AdminMenu
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-AdminMenu
+    ref: master
+    dest: ./tmp/VORP-AdminMenu
+
+  - action: move_path
+    src: ./tmp/VORP-AdminMenu/VORP_AdminMenu[Client-Server]/build/vorp_adminmenu/
+    dest: ./resources/[vorp]/vorp_adminmenu
+    
+# Vorp Stores
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Stores
+    ref: master
+    dest: ./tmp/VORP-Stores
+
+  - action: move_path
+    src: ./tmp/VORP-Stores/VORP-Stores[Client-Server]/build/vorp_stores/
+    dest: ./resources/[vorp]/vorp_stores
+    
+# Vorp WeaponStore
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_weaponsv2
+    ref: main
+    dest: ./resources/[vorp]/vorp_weaponsv2
+    
+# Vorp Banks
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Banks
+    ref: master
+    dest: ./tmp/VORP-Banks
+
+  - action: move_path
+    src: ./tmp/VORP-Banks/vorp_banks/
+    dest: ./resources/[vorp]/vorp_banks
+    
+# Vorp BarberShop
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-BarberShop
+    ref: master
+    dest: ./tmp/VORP-BarberShop
+
+  - action: move_path
+    src: ./tmp/VORP-BarberShop/VORP-BarberShops[Client-Server]/build/vorp_barbershops/
+    dest: ./resources/[vorp]/vorp_barbershops
+    
+# Vorp Cinema
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Cinema
+    ref: master
+    dest: ./tmp/VORP-Cinema
+
+  - action: move_path
+    src: ./tmp/VORP-Cinema/VORP-Cinema[Client-Server]/build/vorp_cinema/
+    dest: ./resources/[vorp]/vorp_cinema
+    
+# Vorp Housing
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Housing
+    ref: master
+    dest: ./tmp/VORP-Housing
+
+  - action: move_path
+    src: ./tmp/VORP-Housing/VORP-Housing[Client-Server]/build/vorp_housing/
+    dest: ./resources/[vorp]/vorp_housing
+    
+# Vorp PostMan
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-PostMan
+    ref: master
+    dest: ./tmp/VORP-PostMan
+
+  - action: move_path
+    src: ./tmp/VORP-PostMan/VORP-PostMan[Server-Client]/build/vorp_postman/
+    dest: ./resources/[vorp]/vorp_postman
+    
+# Vorp WoodCutter
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-WoodCutter
+    ref: master
+    dest: ./tmp/VORP-WoodCutter
+
+  - action: move_path
+    src: ./tmp/VORP-WoodCutter/VORP-WoodCutter[Server-Client]/build/vorp_woodcutter/
+    dest: ./resources/[vorp]/vorp_woodcutter
+    
+# Vorp Fishing
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_fishing-lua
+    ref: main
+    dest: ./resources/[vorp]/vorp_fishing
+    
+# Vorp Police
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_ml_policejob
+    ref: main
+    dest: ./tmp/VORP-police
+
+  - action: move_path
+    src: ./tmp/VORP-police/vorp_ml_policejob
+    dest: ./resources/[vorp]/vorp_ml_policejob
+    
+#Vorp Hunting
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Hunting
+    ref: main
+    dest: ./tmp/VORP-Hunting
+
+  - action: move_path
+    src: ./tmp/VORP-Hunting/vorp_hunting
+    dest: ./resources/[vorp]/vorp_hunting
+    
+# Vorp Traffic
+  - action: download_github
+    src: https://github.com/VORPCORE/Vorp_traffic
+    ref: main
+    dest: ./resources/[vorp]/vorp_traffic
+
+# Vorp walkanim
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_walkanim
+    ref: main
+    dest: ./resources/[vorp]/vorp_walkanim
+
+# Vorp bossmanager
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_bossmanager
+    ref: main
+    dest: ./resources/[vorp]/vorp_bossmanager
+
+# Bulgar_doorlocks_vorp
+  - action: download_github
+    src: https://github.com/NeoGaming22/Bulgar_doorlocks_vorp
+    subpath: bulgar_doorlocks_vorp
+    dest: ./resources/[other]/bulgar_doorlocks_vorp
+
+# Edit Langs to EN
+  
+  - action: remove_path
+    path: ./resources/[vorp]/vorp_postman/Config.json
+
+  - action: move_path
+    src: ./resources/[vorp]/vorp_postman/Config_En.json
+    dest: ./resources/[vorp]/vorp_postman/Config.json
+  
+  - action: remove_path
+    path: ./resources/[vorp]/vorp_housing/Config.json
+
+  - action: move_path
+    src: ./resources/[vorp]/vorp_housing/Config_En.json
+    dest: ./resources/[vorp]/vorp_housing/Config.json
+  
+  - action: remove_path
+    path: ./resources/[vorp]/vorp_cinema/Config.json
+
+  - action: move_path
+    src: ./resources/[vorp]/vorp_cinema/Config_En.json
+    dest: ./resources/[vorp]/vorp_cinema/Config.json
+  
+  - action: remove_path
+    path: ./resources/[vorp]/vorp_stables/Config.json
+
+  - action: move_path
+    src: ./resources/[vorp]/vorp_stables/Config_En.json
+    dest: ./resources/[vorp]/vorp_stables/Config.json
+
+  - action: replace_string
+    file: ./resources/[vorp]/vorp_barbershops/Config.json
+    search: '"Es"'
+    replace: '"En"'
+
+  - action: replace_string
+    file: ./resources/[vorp]/vorp_banks/Config.json
+    search: '"Es"'
+    replace: '"En"'
+
+  - action: replace_string
+    file: ./resources/[vorp]/vorp_stores/Config.json
+    search: '"Es"'
+    replace: '"En"'
+
+  - action: replace_string
+    file: ./resources/[vorp]/vorp_metabolism/Config.json
+    search: '"Es"'
+    replace: '"En"'
+
+  - action: replace_string
+    file: ./resources/[vorp]/vorp_core/Config.json
+    search: '"Es"'
+    replace: '"En"'
+  
+  - action: replace_string
+    file: ./resources/[vorp]/vorp_woodcutter/Config.json
+    search: '"Es"'
+    replace: '"En"'
+  
+# Whitelist setup
+  - action: replace_string
+    file: ./resources/[vorp]/vorp_core/Config.json
+    search: '"Whitelist": true'
+    replace: '"Whitelist": false'
+
+# Edit fxmanifest
+  - action: replace_string
+    file: ./resources/[vorp]/vorp_inventory/fxmanifest.lua
+    search: "'nuistuff.lua',"
+    replace: ""
+    
+  - action: replace_string
+    file: ./resources/[vorp]/vorp_inventory/fxmanifest.lua
+    search: "'invstuff.lua',"
+    replace: ""
+
+# Clean up
+  - action: remove_path
+    path: ./resources/[vorp]/vorp_banks/CitizenFX.Core.dll
+    
+  - action: remove_path
+    path: ./resources/[vorp]/vorp_clothingstore/CitizenFX.Core.dll
+
+  - action: remove_path
+    path: ./resources/[vorp]/vorp_inventory/syn.lua
+
+  - action: remove_path
+    path: ./resources/[vorp]/vorp_inventory/invstuff.lua
+
+  - action: remove_path
+    path: ./resources/[vorp]/vorp_inventory/nuistuff.lua
+
+  - action: remove_path
+    path: ./resources/[sql]/ghmattimysql/config.json
+
+  - action: remove_path
+    path: ./tmp
