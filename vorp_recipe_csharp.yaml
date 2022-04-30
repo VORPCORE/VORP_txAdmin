@@ -170,16 +170,18 @@ tasks:
   - action: move_path
     src: ./tmp/VORP-Cinema/VORP-Cinema[Client-Server]/build/vorp_cinema/
     dest: ./resources/[vorp]/vorp_cinema
-    
-# Vorp Housing
-  - action: download_github
-    src: https://github.com/VORPCORE/VORP-Housing
-    ref: master
-    dest: ./tmp/VORP-Housing
 
-  - action: move_path
-    src: ./tmp/VORP-Housing/VORP-Housing[Client-Server]/build/vorp_housing/
-    dest: ./resources/[vorp]/vorp_housing
+######## Uncomment housing if you wish, however know that this version is currently not working.
+# Vorp Housing
+  # - action: download_github
+  #   src: https://github.com/VORPCORE/VORP-Housing
+  #   ref: master
+  #   dest: ./tmp/VORP-Housing
+
+  # - action: move_path
+  #   src: ./tmp/VORP-Housing/VORP-Housing[Client-Server]/build/vorp_housing/
+  #   dest: ./resources/[vorp]/vorp_housing
+########
     
 # Vorp PostMan
   - action: download_github
@@ -260,12 +262,14 @@ tasks:
     src: ./resources/[vorp]/vorp_postman/Config_En.json
     dest: ./resources/[vorp]/vorp_postman/Config.json
   
-  - action: remove_path
-    path: ./resources/[vorp]/vorp_housing/Config.json
+######## Uncomment housing if you wish, however know that this version is currently not working.
+  # - action: remove_path
+  #   path: ./resources/[vorp]/vorp_housing/Config.json
 
-  - action: move_path
-    src: ./resources/[vorp]/vorp_housing/Config_En.json
-    dest: ./resources/[vorp]/vorp_housing/Config.json
+  # - action: move_path
+  #   src: ./resources/[vorp]/vorp_housing/Config_En.json
+  #   dest: ./resources/[vorp]/vorp_housing/Config.json
+########
   
   - action: remove_path
     path: ./resources/[vorp]/vorp_cinema/Config.json
