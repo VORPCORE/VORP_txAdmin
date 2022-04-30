@@ -1,10 +1,14 @@
-![vorp_txAdminRecipe](https://i.gyazo.com/a1b630125c813f86802c09a104158e6d.png)
+## VORP-CORE
 > A full fledge [txAdmin](https://txadm.in/) recipe for [Vorp Core](http://docs.vorpcore.com:3000/)
 
-Why go through the painful server setup, when you can use a simple recipe? That's what we thought as well! Hence vorp_txAdminRecipe was born. We have brought together all the officially supported Vorp Core scripts, along with some best practices built in.
+[Discord VORP](https://discord.gg/23MPbQ6)
+
+Why go through the painful server setup, when you can use a simple recipe? That's what we thought as well! Hence vorp_txAdmin was born. We have brought together all the officially supported Vorp Core scripts, along with some best practices built in.
 
  ## Included Features
  - Vorp Core 
+	 - Lua or C#
+ - Inventory
 	 - Lua or C#
  - Jobs
 	 - Police
@@ -58,7 +62,9 @@ Why go through the painful server setup, when you can use a simple recipe? That'
 8. Click 'Next'. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-5.png)
 9. Type a name for your server and click 'Next'
 10. Select to use a 'Remote URL Template'. ![enter image description here](https://i.gyazo.com/4022332cac1f6611d325707b27452910.png)
-11. Copy and paste `https://raw.githubusercontent.com/AndrewR3K/vorp_txAdminRecipe/main/vorp_recipe_qadr.yaml` into the url field. ![enter image description here](https://i.gyazo.com/2a77dc66fa5c5279a4458daab59b3ba5.png)
+11. Copy and paste the below url into the url field. (select lua if you want our lua core code, or c# if you prefer core code)
+     11a. (LUA) `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_lua.yaml`
+	 11b. (C#) `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_csharp.yaml`
 12. Click `Next`
 13. Keep the default path and click `Next`
 14. Click `Go to Recipe Deployer`
@@ -88,7 +94,9 @@ _Assuming you are SSHed into your machine or have otherwise access._
 10. Click 'Next'. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-5.png)
 11. Type a name for your server and click 'Next'
 12. Select to use a 'Remote URL Template'. ![enter image description here](https://i.gyazo.com/4022332cac1f6611d325707b27452910.png)
-13. Copy and paste `https://raw.githubusercontent.com/AndrewR3K/vorp_txAdminRecipe/main/vorp_recipe_qadr.yaml` into the url field. ![enter image description here](https://i.gyazo.com/2a77dc66fa5c5279a4458daab59b3ba5.png)
+13. Copy and paste the below url into the url field. (select lua if you want our lua core code, or c# if you prefer core code)
+     11a. (LUA) `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_lua.yaml`
+	 11b. (C#) `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_csharp.yaml`
 14. Click `Next`
 15. Keep the default path and click `Next`
 16. Click `Go to Recipe Deployer`
