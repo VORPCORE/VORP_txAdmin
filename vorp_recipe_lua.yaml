@@ -173,16 +173,7 @@ tasks:
     src: ./tmp/VORP-Cinema/VORP-Cinema[Client-Server]/build/vorp_cinema/
     dest: ./resources/[vorp]/vorp_cinema
     
-# Vorp Housing
-  - action: download_github
-    src: https://github.com/VORPCORE/VORP-Housing
-    ref: master
-    dest: ./tmp/VORP-Housing
 
-  - action: move_path
-    src: ./tmp/VORP-Housing/VORP-Housing[Client-Server]/build/vorp_housing/
-    dest: ./resources/[vorp]/vorp_housing
-    
 # Vorp PostMan
   - action: download_github
     src: https://github.com/VORPCORE/VORP-PostMan
