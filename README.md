@@ -29,7 +29,7 @@ Why go through the painful server setup, when you can use a simple recipe? That'
 	 - Stables (Horses)
 	 - Barber Shops
  - Cinema
- - Housing
+ - Housing (Broken, commented out for now)
  - Custom Walk Animations
  - Admin Menu
  - ghmattimysql
