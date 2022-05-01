@@ -1,11 +1,24 @@
-## VORP-CORE
-> A full fledge [txAdmin](https://txadm.in/) recipe for [Vorp Core](http://docs.vorpcore.com:3000/)
+# VORP-CORE
+
+> _**WARNING:** This is in active development and may not be guaranteed to work in it's current state. Use this with your own caution._
+
+A full fledge [txAdmin](https://txadm.in/) recipe for [Vorp Core](http://docs.vorpcore.com:3000/)
 
 [Discord VORP](https://discord.gg/23MPbQ6)
 
-Why go through the painful server setup, when you can use a simple recipe? That's what we thought as well! Hence vorp_txAdmin was born. We have brought together all the officially supported Vorp Core scripts, along with some best practices built in.
+## BEFORE USING
 
- ## Included Features
+### Should I use txAdmin Recipe or the Pre-made server?
+
+#### Pre-made
+If you are looking for a full fledge **ready-to-go server** with the top communities scripts built in, then use this **OFFICIAL** pre-made server here [VORP-Premade-server](https://github.com/outsider31000/VORP-Premade-server)
+
+_(Pre-made includes txAdmin as well, so you will not miss out on txAdmin if you use this option)_
+
+#### txAdmin Recipe
+If you are looking for a light, **barebone** server with core and official vorp scripts. This is a stripped down server, that is generally intended for developers who need a rapid, small, environment to test. OR for server ownder who are looking for a minimalistic starting plate. However it is highly recommended to use the pre-made otherwise.
+
+## Included Features
  - Vorp Core 
 	 - Lua or C#
  - Inventory
