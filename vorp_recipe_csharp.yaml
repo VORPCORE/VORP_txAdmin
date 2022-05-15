@@ -226,7 +226,7 @@ tasks:
     dest: ./tmp/VORP-Hunting
 
   - action: move_path
-    src: ./tmp/VORP-Hunting/vorp_hunting
+    src: ./tmp/VORP-Hunting
     dest: ./resources/[vorp]/vorp_hunting
     
 # Vorp Traffic
