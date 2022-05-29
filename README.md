@@ -139,6 +139,6 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 
 
 ## Credits and references
-- _Inspired and derived from: https://github.com/VanTheNoble/vorp_txAdminRecipe
+- This repo is basically https://github.com/abdulkadiraktas/vorp_txAdminRecipe it has been copied and developed from here.
 - _Inspired and derived from: https://forum.cfx.re/t/how-to-setup-a-redm-server/918850_
 - _Inspired and derived from: https://docs.fivem.net/docs/server-manual/setting-up-a-server-txadmin/_
