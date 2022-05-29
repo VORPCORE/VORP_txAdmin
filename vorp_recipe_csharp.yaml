@@ -112,7 +112,7 @@ tasks:
     dest: ./tmp/VORP-Stables
 
   - action: move_path
-    src: ./tmp/VORP-Stables/VORP-Stables[Client-Server]/build/vorp_stables/
+    src: ./tmp/VORP-Stables/VORP-Stables/build/vorp_stables/
     dest: ./resources/[vorp]/vorp_stables
     
 # Vorp AdminMenu
