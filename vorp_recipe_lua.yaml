@@ -227,10 +227,15 @@ tasks:
     ref: main
     dest: ./tmp/VORP-Hunting
 
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Hunting
+    ref: main
+    dest: ./tmp/VORP-Hunting
+
   - action: move_path
-    src: ./tmp/VORP-Hunting/vorp_hunting
+    src: ./tmp/VORP-Hunting
     dest: ./resources/[vorp]/vorp_hunting
-    
+
 # Vorp Traffic
   - action: download_github
     src: https://github.com/VORPCORE/Vorp_traffic
