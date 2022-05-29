@@ -114,7 +114,7 @@ tasks:
     dest: ./tmp/VORP-Stables
 
   - action: move_path
-    src: ./tmp/VORP-Stables/VORP-Stables[Client-Server]/build/vorp_stables/
+    src: ./tmp/VORP-Stables/VORP-Stables/build/vorp_stables/
     dest: ./resources/[vorp]/vorp_stables
     
 # Vorp AdminMenu
@@ -227,10 +227,15 @@ tasks:
     ref: main
     dest: ./tmp/VORP-Hunting
 
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP-Hunting
+    ref: main
+    dest: ./tmp/VORP-Hunting
+
   - action: move_path
-    src: ./tmp/VORP-Hunting/vorp_hunting
+    src: ./tmp/VORP-Hunting
     dest: ./resources/[vorp]/vorp_hunting
-    
+
 # Vorp Traffic
   - action: download_github
     src: https://github.com/VORPCORE/Vorp_traffic
