@@ -41,10 +41,10 @@ tasks:
   - action: download_github
     src: https://github.com/AndrewR3K/VORP_txAdmin
     ref: main
-    dest: ./tmp/vorp_txAdminRecipe
+    dest: ./temp/vorp_txAdminRecipe
   
   - action: move_path
-    src: ./tmp/vorp_txAdminRecipe/server.cfg
+    src: ./temp/vorp_txAdminRecipe/server.cfg
     dest: ./server.cfg
 
 # STANDALONE CFX

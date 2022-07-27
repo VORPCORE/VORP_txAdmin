@@ -45,9 +45,8 @@ A full fledge [txAdmin](https://txadm.in/) recipe for [Vorp Core](http://docs.vo
 	- [Windows](http://runtime.fivem.net/artifacts/fivem/build_server_windows/master/) 
 	- [Linux](http://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
 
-## Installation
+## Installation Tutorial
 **Video Walkthrough** 
-[https://www.youtube.com/watch?v=FvnMDj554nE](https://www.youtube.com/watch?v=FvnMDj554nE&feature=youtu.be)
 
 ### Windows
 1.  Create a new base folder (e.g.  `C:\MyRedMServer`)
@@ -66,10 +65,12 @@ A full fledge [txAdmin](https://txadm.in/) recipe for [Vorp Core](http://docs.vo
 13. Keep the default path and click `Next`
 14. Click `Go to Recipe Deployer`
 15. Click 'Next' once you're sure the recipe looks fine. It should be fine the way it comes.
-16. Enter the key you just made on the [Keymaster](https://keymaster.fivem.net/) in the 'Before you begin' step and click 'Run Recipe'. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-12.png)
-17. Woohoo! Recipe installed correctly, you can click 'Next' again. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-13.png)
-18. Click "Save & Run Server", and you're done!
- 
+16. Enter the key you just made on the [Keymaster](https://keymaster.fivem.net/) in the 'Before you begin' ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-12.png)
+17. Click the "Show/Hide Database options (advanced)"
+18. Change Database Name to `vorpv2`
+19. Click 'Run Recipe'
+20. Woohoo! Recipe installed correctly, you can click 'Next' again. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-13.png)
+21. Click "Save & Run Server", and you're done!
 
 ### Linux
 _Assuming you are SSHed into your machine or have otherwise access._
@@ -101,9 +102,12 @@ _Assuming you are SSHed into your machine or have otherwise access._
 15. Keep the default path and click `Next`
 16. Click `Go to Recipe Deployer`
 17. Click 'Next' once you're sure the recipe looks fine. It should be fine the way it comes.
-18. Enter the key you just made on the [Keymaster](https://keymaster.fivem.net/) in the 'Before you begin' step and click 'Run Recipe'. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-12.png)
-19. Woohoo! Recipe installed correctly, you can click 'Next' again. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-13.png)
-20. Click "Save & Run Server", and you're done!
+18. Enter the key you just made on the [Keymaster](https://keymaster.fivem.net/) in the 'Before you begin' ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-12.png)
+19. Click the "Show/Hide Database options (advanced)"
+20. Change Database Name to `vorpv2`
+21. Click 'Run Recipe'
+22. Woohoo! Recipe installed correctly, you can click 'Next' again. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-13.png)
+23. Click "Save & Run Server", and you're done!
 
 ## Configuration
 **Server Configurations**
