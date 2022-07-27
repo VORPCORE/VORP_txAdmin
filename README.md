@@ -6,23 +6,8 @@ A full fledge [txAdmin](https://txadm.in/) recipe for [Vorp Core](http://docs.vo
 
 [Discord VORP](https://discord.gg/23MPbQ6)
 
-## BEFORE USING
-
-### Should I use txAdmin Recipe or the Pre-made server?
-
-#### Pre-made
-If you are looking for a full fledge **ready-to-go server** with the top communities scripts built in, then use this **OFFICIAL** pre-made server here [VORP-Premade-server](https://github.com/outsider31000/VORP-Premade-server)
-
-_(Pre-made includes txAdmin as well, so you will not miss out on txAdmin if you use this option)_
-
-#### txAdmin Recipe
-If you are looking for a light, **barebone** server with core and official vorp scripts. This is a stripped down server, that is generally intended for developers who need a rapid, small, environment to test. OR for server ownder who are looking for a minimalistic starting plate. However it is highly recommended to use the pre-made otherwise.
-
 ## Included Features
- - Vorp Core 
-	 - Lua or C#
- - Inventory
-	 - Lua or C#
+ - Vorp Core Premade (Most Stable Releases)
  - Jobs
 	 - Police
 	 - Postman
@@ -42,7 +27,7 @@ If you are looking for a light, **barebone** server with core and official vorp 
 	 - Stables (Horses)
 	 - Barber Shops
  - Cinema
- - Housing (Broken, commented out for now)
+ - Housing
  - Custom Walk Animations
  - Admin Menu
  - ghmattimysql
@@ -60,14 +45,13 @@ If you are looking for a light, **barebone** server with core and official vorp 
 	- [Windows](http://runtime.fivem.net/artifacts/fivem/build_server_windows/master/) 
 	- [Linux](http://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
 
-## Installation
+## Installation Tutorial
 **Video Walkthrough** 
-[https://www.youtube.com/watch?v=FvnMDj554nE](https://www.youtube.com/watch?v=FvnMDj554nE&feature=youtu.be)
 
 ### Windows
 1.  Create a new base folder (e.g.  `C:\MyRedMServer`)
 2. Navigate to [http://runtime.fivem.net/artifacts/fivem/build_server_windows/master](http://runtime.fivem.net/artifacts/fivem/build_server_windows/master/)  and download the  **Latest Recommended**  artifact.
-3. Open the downloaded  _server.zip_  file and extract the contents to your server folder created in step 1 (e.g.  `C:\MyRedMServer`)
+3. Open the downloaded  _server.zip_  file and extract the contents to a new folder called `cfx` within your server folder created in step 1 (e.g.  `C:\MyRedMServer\cfx`)
 4. Double Click or execute `FXServer.exe` to initiate setup
 5. This site should open in your browser. Make sure a PIN is filled, and click `Link Account`.![enter image description here](https://docs.fivem.net/server-setup/windows-step2-2.png)
 6.  Log in to your account on [Cfx.re](https://forum.cfx.re/) in this tab and then click `Yes, Allow`.
@@ -75,17 +59,18 @@ If you are looking for a light, **barebone** server with core and official vorp 
 8. Click 'Next'. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-5.png)
 9. Type a name for your server and click 'Next'
 10. Select to use a 'Remote URL Template'. ![enter image description here](https://i.gyazo.com/4022332cac1f6611d325707b27452910.png)
-11. Copy and paste the below url into the url field. (select lua if you want our lua core code, or c# if you prefer core code)
-     11a. (LUA) `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_lua.yaml`
-	 11b. (C#) `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_csharp.yaml`
+11. Copy and paste the below url into the url field.
+    `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe.yaml`
 12. Click `Next`
 13. Keep the default path and click `Next`
 14. Click `Go to Recipe Deployer`
 15. Click 'Next' once you're sure the recipe looks fine. It should be fine the way it comes.
-16. Enter the key you just made on the [Keymaster](https://keymaster.fivem.net/) in the 'Before you begin' step and click 'Run Recipe'. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-12.png)
-17. Woohoo! Recipe installed correctly, you can click 'Next' again. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-13.png)
-18. Click "Save & Run Server", and you're done!
- 
+16. Enter the key you just made on the [Keymaster](https://keymaster.fivem.net/) in the 'Before you begin' ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-12.png)
+17. Click the "Show/Hide Database options (advanced)"
+18. Change Database Name to `vorpv2`
+19. Click 'Run Recipe'
+20. Woohoo! Recipe installed correctly, you can click 'Next' again. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-13.png)
+21. Click "Save & Run Server", and you're done!
 
 ### Linux
 _Assuming you are SSHed into your machine or have otherwise access._
@@ -93,8 +78,12 @@ _Assuming you are SSHed into your machine or have otherwise access._
 2. Navigate in your browser to  [http://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/](http://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)  
     a. Right click on the latest artifact
     b. Click “Copy link location” or similar prompts
-3. Navigate to the MyRedMServer folder  
-    a.  `cd ~/MyRedMServer`
+3. Create a new cfx folder and then navigate to the MyRedMServer folder  
+    a. `cd ~/MyRedMServer`
+
+	b. `mkdir cfx`
+
+	c. `cd cfx`
 4. Download the artifact using the link we copied in step 2.  
     a.  `wget <link_url>`
 5.  Extract the files using  `tar`  
@@ -108,15 +97,17 @@ _Assuming you are SSHed into your machine or have otherwise access._
 11. Type a name for your server and click 'Next'
 12. Select to use a 'Remote URL Template'. ![enter image description here](https://i.gyazo.com/4022332cac1f6611d325707b27452910.png)
 13. Copy and paste the below url into the url field. (select lua if you want our lua core code, or c# if you prefer core code)
-     11a. (LUA) `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_lua.yaml`
-	 11b. (C#) `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe_csharp.yaml`
+    (LUA) `https://raw.githubusercontent.com/VORPCORE/VORP_txAdmin/main/vorp_recipe.yaml`
 14. Click `Next`
 15. Keep the default path and click `Next`
 16. Click `Go to Recipe Deployer`
 17. Click 'Next' once you're sure the recipe looks fine. It should be fine the way it comes.
-18. Enter the key you just made on the [Keymaster](https://keymaster.fivem.net/) in the 'Before you begin' step and click 'Run Recipe'. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-12.png)
-19. Woohoo! Recipe installed correctly, you can click 'Next' again. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-13.png)
-20. Click "Save & Run Server", and you're done!
+18. Enter the key you just made on the [Keymaster](https://keymaster.fivem.net/) in the 'Before you begin' ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-12.png)
+19. Click the "Show/Hide Database options (advanced)"
+20. Change Database Name to `vorpv2`
+21. Click 'Run Recipe'
+22. Woohoo! Recipe installed correctly, you can click 'Next' again. ![enter image description here](https://docs.fivem.net/server-setup/windows-step2-13.png)
+23. Click "Save & Run Server", and you're done!
 
 ## Configuration
 **Server Configurations**
@@ -131,7 +122,6 @@ _Assuming you are SSHed into your machine or have otherwise access._
 
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
 
-
 ## Open source licensing info
 1. [CONDUCT](CODE_OF_CONDUCT.md)
 2. [LICENSE](LICENSE)
@@ -139,7 +129,5 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 
 
 ## Credits and references
-- _The following repo was used as the base for this project. https://github.com/VanTheNoble/vorp_txAdminRecipe
-  - Many thanks to [abdulkadiraktas](https://github.com/abdulkadiraktas) for the initial work put into the repo above!!
 - _Inspired and derived from: https://forum.cfx.re/t/how-to-setup-a-redm-server/918850_
 - _Inspired and derived from: https://docs.fivem.net/docs/server-manual/setting-up-a-server-txadmin/_
