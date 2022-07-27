@@ -1,0 +1,64 @@
+$engine: 3
+name: Vorpcore
+version: 1.1.0
+author: vorpcore
+description: VorpCore Official txAdmin recipe! This will set up a base vorp official server setup.
+
+tasks:
+# Download Pre-Made Files
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_pre-made
+    ref: main
+    dest: ./temp/premade
+
+# Prepare Database
+  - action: connect_database
+  - action: query_database
+    file: ./temp/premade/MariaDB.sql
+  
+# Move all resources and files to root for txadmin
+  - action: move_path
+    src: ./temp/premade/server/resources
+    dest: ./resources
+  
+  - action: move_path
+    src: ./temp/premade/server/icon.png
+    dest: ./icon.png
+
+  - action: move_path
+    src: ./temp/premade/server/perms.cfg
+    dest: ./perms.cfg
+
+  - action: move_path
+    src: ./temp/premade/server/resources.cfg
+    dest: ./resources.cfg
+
+  - action: move_path
+    src: ./temp/premade/server/vorp_perms.cfg
+    dest: ./vorp_perms.cfg
+
+# TXRecipe Specific server.cfg
+  - action: download_github
+    src: https://github.com/AndrewR3K/VORP_txAdmin
+    ref: main
+    dest: ./tmp/vorp_txAdminRecipe
+  
+  - action: move_path
+    src: ./tmp/vorp_txAdminRecipe/server.cfg
+    dest: ./server.cfg
+
+# STANDALONE CFX
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    subpath: resources
+    dest: ./resources/[cfx-default]
+
+# Interiors - Interior fixes (Not Vorp official, but essential.)
+  - action: download_github
+    src: https://github.com/MissBehavin/interiors
+    ref: master
+    dest: ./resources/[cfx-default]/[gameplay]/interiors
+
+# Clean up CFX-files
+  - action: remove_path
+    path: ./temp
