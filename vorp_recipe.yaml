@@ -14,7 +14,7 @@ tasks:
 # Prepare Database
   - action: connect_database
   - action: query_database
-    file: ./temp/premade/MariaDB.sql
+    file: ./temp/premade/zap910212-1.sql
   
 # Move all resources and files to root for txadmin
   - action: move_path
