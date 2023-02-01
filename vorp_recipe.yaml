@@ -16,28 +16,24 @@ tasks:
   - action: query_database
     file: ./temp/premade/MariaDB.sql
   
-# Move all resources and files to root for txadmin
+# Move all vorp resources and files to root for txadmin
   - action: move_path
     src: ./temp/premade/server/resources
     dest: ./resources
-  
-  - action: move_path
-    src: ./temp/premade/server/icon.png
-    dest: ./icon.png
 
   - action: move_path
     src: ./temp/premade/server/perms.cfg
     dest: ./perms.cfg
 
   - action: move_path
-    src: ./temp/premade/server/resources.cfg
-    dest: ./resources.cfg
+    src: ./temp/premade/server/icon.png
+    dest: ./icon.png
 
   - action: move_path
     src: ./temp/premade/server/vorp_perms.cfg
     dest: ./vorp_perms.cfg
 
-# TXRecipe Specific server.cfg
+# TXRecipe Specific server.cfg + resource.cfg
   - action: download_github
     src: https://github.com/VORPCORE/VORP_txAdmin
     ref: main
@@ -46,19 +42,17 @@ tasks:
   - action: move_path
     src: ./temp/vorp_txAdminRecipe/server.cfg
     dest: ./server.cfg
+  
+  - action: move_path
+    src: ./temp/vorp_txAdminRecipe/resources.cfg
+    dest: ./resources.cfg
 
 # STANDALONE CFX
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
     subpath: resources
-    dest: ./resources/[cfx-default]
-
-# Interiors - Interior fixes (Not Vorp official, but essential.)
-  - action: download_github
-    src: https://github.com/MissBehavin/interiors
-    ref: master
-    dest: ./resources/[cfx-default]/[gameplay]/interiors
-
-# Clean up CFX-files
+    dest: ./resources
+    
+# Clean up temporary files
   - action: remove_path
     path: ./temp
