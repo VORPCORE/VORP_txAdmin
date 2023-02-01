@@ -10,11 +10,6 @@ tasks:
     src: https://github.com/VORPCORE/vorp_pre-made
     ref: main
     dest: ./temp/premade
-
-# Prepare Database
-  - action: connect_database
-  - action: query_database
-    file: ./temp/premade/MariaDB.sql
   
 # Move all vorp resources and files to root for txadmin
   - action: move_path
@@ -47,12 +42,17 @@ tasks:
     src: ./temp/vorp_txAdminRecipe/resources.cfg
     dest: ./resources.cfg
 
+# Prepare Database
+  - action: connect_database
+  - action: query_database
+    file: ./temp/vorp_txAdminRecipe/MariaDB.sql
+
 # STANDALONE CFX
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
     subpath: resources
     dest: ./resources
-    
+
 # Clean up temporary files
   - action: remove_path
     path: ./temp
