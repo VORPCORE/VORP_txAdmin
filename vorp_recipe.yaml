@@ -1,6 +1,6 @@
 $engine: 3
 name: Vorpcore
-version: 2.0.0
+version: 2.1.0
 author: vorpcore
 description: VorpCore Official txAdmin recipe! This will set up a base vorp official server setup.
 
@@ -30,7 +30,7 @@ tasks:
 
 # TXRecipe Specific server.cfg + resource.cfg
   - action: download_github
-    src: https://github.com/VORPCORE/VORP_txAdmin
+    src: https://github.com/AndrewR3K/VORP_txAdmin
     ref: main
     dest: ./temp/vorp_txAdminRecipe
   
