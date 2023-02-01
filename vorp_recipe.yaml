@@ -34,7 +34,7 @@ tasks:
 
 # TXRecipe Specific server.cfg files
   - action: download_github
-    src: https://github.com/VORPCORE/VORP_txAdmin
+    src: https://github.com/AndrewR3K/VORP_txAdmin
     ref: main
     dest: ./temp/vorp_txAdminRecipe
   
