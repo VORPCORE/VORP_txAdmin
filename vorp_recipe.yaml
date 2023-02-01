@@ -28,7 +28,11 @@ tasks:
     src: ./temp/premade/server/vorp_perms.cfg
     dest: ./vorp_perms.cfg
 
-# TXRecipe Specific server.cfg + resource.cfg
+  - action: move_path
+    src: ./temp/premade/server/resources.cfg
+    dest: ./resources.cfg
+
+# TXRecipe Specific server.cfg files
   - action: download_github
     src: https://github.com/AndrewR3K/VORP_txAdmin
     ref: main
@@ -38,10 +42,6 @@ tasks:
     src: ./temp/vorp_txAdminRecipe/server.cfg
     dest: ./server.cfg
   
-  - action: move_path
-    src: ./temp/vorp_txAdminRecipe/resources.cfg
-    dest: ./resources.cfg
-
 # Prepare Database
   - action: connect_database
   - action: query_database
