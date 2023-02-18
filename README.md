@@ -2,6 +2,10 @@
 
 A full fledge [txAdmin](https://txadm.in/) recipe for [Vorp Core](http://docs.vorpcore.com:3000/)
 
+## Instalation video 
+[youtube](https://www.youtube.com/watch?v=ECx70qGzTQI)
+
+## framework
 [Discord VORP](https://discord.gg/23MPbQ6)
 
 ## Included Features
