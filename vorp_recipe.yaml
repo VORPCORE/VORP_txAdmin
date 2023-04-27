@@ -1,11 +1,29 @@
 $engine: 3
 $onesync: on
 name: Vorpcore
-version: 2.1.0
+version: 2.2.0
 author: vorpcore
-description: VorpCore Official txAdmin recipe! This will set up a base vorp official server setup.
+description: VorpCore Official txAdmin recipe! This will set up a base vorp official server.
 
 tasks:
+
+# TXRecipe Specific server.cfg files
+  - action: download_github
+    src: https://github.com/VORPCORE/VORP_txAdmin
+    ref: main
+    dest: ./temp/vorp_txAdminRecipe
+  
+  - action: move_path
+    src: ./temp/vorp_txAdminRecipe/server.cfg
+    dest: ./server.cfg
+  
+# Prepare Database
+  - action: connect_database
+
+# Run Database SQL  
+  - action: query_database
+    file: ./temp/vorp_txAdminRecipe/MariaDB.sql
+
 # Download Pre-Made Files
   - action: download_github
     src: https://github.com/VORPCORE/vorp_pre-made
@@ -32,21 +50,6 @@ tasks:
   - action: move_path
     src: ./temp/premade/server/resources.cfg
     dest: ./resources.cfg
-
-# TXRecipe Specific server.cfg files
-  - action: download_github
-    src: https://github.com/VORPCORE/VORP_txAdmin
-    ref: main
-    dest: ./temp/vorp_txAdminRecipe
-  
-  - action: move_path
-    src: ./temp/vorp_txAdminRecipe/server.cfg
-    dest: ./server.cfg
-  
-# Prepare Database
-  - action: connect_database
-  - action: query_database
-    file: ./temp/vorp_txAdminRecipe/MariaDB.sql
 
 # Clean up temporary files
   - action: remove_path
