@@ -1,5 +1,4 @@
-CREATE DATABASE IF NOT EXISTS `vorpv2` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `vorpv2`;
+
 
 CREATE TABLE IF NOT EXISTS `banks` (
   `name` varchar(50) NOT NULL,
