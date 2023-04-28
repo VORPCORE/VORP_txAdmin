@@ -29,6 +29,13 @@ tasks:
     src: https://github.com/VORPCORE/vorp_pre-made
     ref: main
     dest: ./temp/premade
+    
+# Download default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[CFX]
   
 # Move all vorp resources and files to root for txadmin
   - action: move_path
