@@ -23,6 +23,13 @@ tasks:
 # Run Database SQL  
   - action: query_database
     file: ./temp/vorp_txAdminRecipe/MariaDB.sql
+    
+# Download default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[CFX]
 
 # Download Pre-Made Files
   - action: download_github
@@ -32,16 +39,9 @@ tasks:
   
 # Move all vorp resources and files to root for txadmin
   - action: move_path
-    src: ./temp/premade/server/resources
-    dest: ./resources
+    src: ./temp/premade/server/resources/[VORP]
+    dest: ./resources/[VORP]
     
-# Download default CFX resources
-  - action: download_github
-    src: https://github.com/citizenfx/cfx-server-data
-    ref: master
-    subpath: resources
-    dest: ./resources/[CFX]
-
   - action: move_path
     src: ./temp/premade/server/perms.cfg
     dest: ./perms.cfg
