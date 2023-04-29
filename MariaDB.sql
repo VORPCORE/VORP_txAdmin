@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `jail` (
 
 CREATE TABLE IF NOT EXISTS `loadout` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(50) NOT NULL,
+  `identifier` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_bin',
   `charidentifier` int(11) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `ammo` varchar(255) NOT NULL DEFAULT '{}',
