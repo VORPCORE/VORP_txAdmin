@@ -29,6 +29,11 @@ tasks:
     src: https://github.com/VORPCORE/vorp_pre-made
     ref: main
     dest: ./temp/premade
+  
+# Move all vorp resources and files to root for txadmin
+  - action: move_path
+    src: ./temp/premade/server/resources
+    dest: ./resources
     
 # Download default CFX resources
   - action: download_github
@@ -36,11 +41,6 @@ tasks:
     ref: master
     subpath: resources
     dest: ./resources/[CFX]
-  
-# Move all vorp resources and files to root for txadmin
-  - action: move_path
-    src: ./temp/premade/server/resources
-    dest: ./resources
 
   - action: move_path
     src: ./temp/premade/server/perms.cfg
