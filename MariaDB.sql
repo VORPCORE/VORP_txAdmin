@@ -343,7 +343,7 @@ ON UPDATE CASCADE;
 
 INSERT IGNORE INTO `banks` (`name`) VALUES
 	('Blackwater'),
-	('Saint Denis'),
+	('SaintDenis'),
 	('Valentine');
 
 
