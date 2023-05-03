@@ -1,13 +1,15 @@
 $engine: 3
 $onesync: on
-name: Vorpcore
+name: VORPCore
 version: 2.2.0
 author: vorpcore
 description: VorpCore Official txAdmin recipe! This will set up a base vorp official server.
 
-tasks:
+variables:
+    steam_webApiKey: "none"
 
-# TXRecipe Specific server.cfg files
+tasks:
+# Recipe Specific server.cfg files
   - action: download_github
     src: https://github.com/VORPCORE/VORP_txAdmin
     ref: main
@@ -17,10 +19,8 @@ tasks:
     src: ./temp/vorp_txAdminRecipe/server.cfg
     dest: ./server.cfg
   
-# Prepare Database
+# Run Database SQL
   - action: connect_database
-
-# Run Database SQL  
   - action: query_database
     file: ./temp/vorp_txAdminRecipe/MariaDB.sql
     
@@ -29,7 +29,7 @@ tasks:
     src: https://github.com/citizenfx/cfx-server-data
     ref: master
     subpath: resources
-    dest: ./resources/[CFX]
+    dest: ./resources/
 
 # Download Pre-Made Files
   - action: download_github
@@ -41,10 +41,6 @@ tasks:
   - action: move_path
     src: ./temp/premade/server/resources/[VORP]
     dest: ./resources/[VORP]
-    
-  - action: move_path
-    src: ./temp/premade/server/perms.cfg
-    dest: ./perms.cfg
 
   - action: move_path
     src: ./temp/premade/server/icon.png
@@ -53,10 +49,6 @@ tasks:
   - action: move_path
     src: ./temp/premade/server/vorp_perms.cfg
     dest: ./vorp_perms.cfg
-
-  - action: move_path
-    src: ./temp/premade/server/resources.cfg
-    dest: ./resources.cfg
 
 # Clean up temporary files
   - action: remove_path
