@@ -46,10 +46,6 @@ tasks:
     src: ./temp/premade/server/icon.png
     dest: ./icon.png
 
-  - action: move_path
-    src: ./temp/premade/server/vorp_perms.cfg
-    dest: ./vorp_perms.cfg
-
 # Clean up temporary files
   - action: remove_path
     path: ./temp
