@@ -1,7 +1,6 @@
 $engine: 3
 $onesync: on
 name: VORPCore
-version: 2.2.0
 author: vorpcore
 description: VorpCore Official txAdmin recipe! This will set up a base vorp official server.
 
