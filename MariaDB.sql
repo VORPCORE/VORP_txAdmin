@@ -207,7 +207,7 @@ CREATE TABLE `items` (
 	PRIMARY KEY (`item`) USING BTREE,
 	UNIQUE INDEX `id` (`id`) USING BTREE,
 	INDEX `FK_items_item_group` (`groupId`) USING BTREE,
-	CONSTRAINT `FK_items_item_group` FOREIGN KEY (`groupId`) REFERENCES `vorpv2`.`item_group` (`id`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT `FK_items_item_group` FOREIGN KEY (`groupId`) REFERENCES `item_group`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT `metadata` CHECK (json_valid(`metadata`))
 )
 COLLATE='utf8mb4_general_ci'
