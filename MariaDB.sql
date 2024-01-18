@@ -152,28 +152,6 @@ CREATE TABLE IF NOT EXISTS `herbalists` (
   UNIQUE KEY `identifier_charidentifier` (`identifier`,`charidentifier`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
-CREATE TABLE IF NOT EXISTS `horses` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(40) NOT NULL,
-  `charid` int(11) NOT NULL,
-  `selected` int(11) NOT NULL DEFAULT 0,
-  `model` varchar(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `components` varchar(5000) NOT NULL DEFAULT '{}',
-  `exp` int(11) NOT NULL DEFAULT 0,
-  `items` longtext DEFAULT '{}',
-  `sex` int(11) DEFAULT 0,
-  PRIMARY KEY (`id`),
-  KEY `FK_horses_characters` (`charid`),
-  KEY `model` (`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
-
-CREATE TABLE IF NOT EXISTS `horse_complements` (
-  `identifier` varchar(50) NOT NULL,
-  `charidentifier` int(11) NOT NULL,
-  `complements` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  UNIQUE KEY `identifier` (`identifier`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 CREATE TABLE IF NOT EXISTS `housing` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
