@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `LastLogin` date DEFAULT NULL,
   `inventory` longtext COLLATE utf8mb4_bin DEFAULT NULL,
   `job` varchar(50) COLLATE utf8mb4_bin DEFAULT 'unemployed',
+  `joblabel` varchar(255) DEFAULT 'job label',
   `status` varchar(140) COLLATE utf8mb4_bin DEFAULT '{}',
   `meta` varchar(255) COLLATE utf8mb4_bin NOT NULL DEFAULT '{}',
   `firstname` varchar(50) COLLATE utf8mb4_bin DEFAULT ' ',
