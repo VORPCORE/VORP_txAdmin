@@ -279,20 +279,20 @@ CREATE TABLE IF NOT EXISTS `wagons` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
 
 CREATE TABLE `whitelist` (
-    `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `identifier` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_bin',
-    `status` TINYINT(1) NULL DEFAULT NULL,
-    `firstconnection` TINYINT(1) NULL DEFAULT '1',
-    `discordid` VARCHAR(50) NULL DEFAULT '0' COLLATE 'utf8mb4_general_ci',
-    PRIMARY KEY (`id`) USING BTREE,
-    UNIQUE INDEX `identifier` (`identifier`) USING BTREE,
- )  ENGINE=InnoDB  ROW_FORMAT=DYNAMIC;
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`identifier` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_bin',
+	`status` TINYINT(1) NULL DEFAULT NULL,
+	`firstconnection` TINYINT(1) NULL DEFAULT '1',
+	`discordid` VARCHAR(255) NULL DEFAULT '0' COLLATE 'utf8mb4_general_ci',
+	PRIMARY KEY (`id`) USING BTREE,
+	UNIQUE INDEX `identifier` (`identifier`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+ROW_FORMAT=DYNAMIC
+AUTO_INCREMENT=40
+;
 
-SET
-  NAMES utf8mb4;
-
-SET
-  FOREIGN_KEY_CHECKS = 0;
 
 CREATE TABLE `stables` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
