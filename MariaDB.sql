@@ -286,9 +286,7 @@ CREATE TABLE `whitelist` (
     `discordid` VARCHAR(50) NULL DEFAULT '0' COLLATE 'utf8mb4_general_ci',
     PRIMARY KEY (`id`) USING BTREE,
     UNIQUE INDEX `identifier` (`identifier`) USING BTREE,
-    ) COLLATE='utf8mb4_general_ci'
-    ENGINE=InnoDB
-    ROW_FORMAT=DYNAMIC;
+ )  ENGINE=InnoDB  ROW_FORMAT=DYNAMIC;
 
 SET
   NAMES utf8mb4;
