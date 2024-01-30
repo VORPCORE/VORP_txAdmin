@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `warnings` int(11) DEFAULT 0,
   `banned` tinyint(1) DEFAULT NULL,
   `banneduntil` int(10) DEFAULT 0,
-  `char` INT DEFAULT 5; /* max characters allowed*/
+  `char` INT DEFAULT 5, /* max characters allowed*/
   PRIMARY KEY (`identifier`),
   UNIQUE KEY `identifier` (`identifier`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `outfits` (
   `charidentifier` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `comps` longtext DEFAULT NULL,
-  `compTints` longtext DEFAULT NULL;
+  `compTints` longtext DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
