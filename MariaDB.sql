@@ -67,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `hours` float NOT NULL DEFAULT 0,
   `LastLogin` date DEFAULT NULL,
   `inventory` longtext COLLATE utf8mb4_bin DEFAULT NULL,
+  `slots` INT(11) DEFAULT 200,
   `job` varchar(50) COLLATE utf8mb4_bin DEFAULT 'unemployed',
   `joblabel` varchar(255) DEFAULT 'job label',
   `status` varchar(140) COLLATE utf8mb4_bin DEFAULT '{}',
