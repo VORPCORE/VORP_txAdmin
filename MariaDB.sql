@@ -1,5 +1,5 @@
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE  `users` (
   `identifier` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `group` varchar(50) DEFAULT 'user',
   `warnings` int(11) DEFAULT 0,
@@ -25,33 +25,7 @@ CREATE TABLE `bank_users` (
   CONSTRAINT `bankusers` FOREIGN KEY (`identifier`) REFERENCES `users` (`identifier`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
 
-
-CREATE TABLE IF NOT EXISTS `banneds` (
-  `b_id` int(11) NOT NULL AUTO_INCREMENT,
-  `b_steam` varchar(100) NOT NULL,
-  `b_license` varchar(255) DEFAULT NULL,
-  `b_discord` varchar(100) DEFAULT NULL,
-  `b_reason` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `b_banned` varchar(100) NOT NULL,
-  `b_unban` varchar(100) NOT NULL,
-  `b_permanent` tinyint(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`b_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
-
-CREATE TABLE IF NOT EXISTS `bills` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `job` longtext DEFAULT NULL,
-  `playername` longtext DEFAULT NULL,
-  `identifier` varchar(50) DEFAULT NULL,
-  `charidentifier` int(11) DEFAULT NULL,
-  `issuer` longtext DEFAULT NULL,
-  `amount` double DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
-
-
-CREATE TABLE IF NOT EXISTS `characters` (
+CREATE TABLE  `characters` (
   `identifier` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `steamname` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `charidentifier` int(11) NOT NULL AUTO_INCREMENT,
@@ -67,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `hours` float NOT NULL DEFAULT 0,
   `LastLogin` date DEFAULT NULL,
   `inventory` longtext COLLATE utf8mb4_bin DEFAULT NULL,
-  `slots` INT(11) DEFAULT 200,
+  `slots` DECIMAL(20,1) NOT NULL DEFAULT 35.0,
   `job` varchar(50) COLLATE utf8mb4_bin DEFAULT 'unemployed',
   `joblabel` varchar(255) DEFAULT 'job label',
   `status` varchar(140) COLLATE utf8mb4_bin DEFAULT '{}',
@@ -126,26 +100,17 @@ CREATE TABLE `rooms`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 
-CREATE TABLE IF NOT EXISTS `character_inventories` (
+CREATE TABLE  `character_inventories` (
   `character_id` int(11) DEFAULT NULL,
   `inventory_type` varchar(100) NOT NULL DEFAULT 'default',
   `item_crafted_id` int(11) NOT NULL,
+  `item_name` VARCHAR(50) COLLATE 'utf8mb4_general_ci' DEFAULT 'item',
   `amount` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   KEY `character_inventory_idx` (`character_id`,`inventory_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
-
-CREATE TABLE IF NOT EXISTS `doors` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `doorinfo` longtext NOT NULL DEFAULT '[]',
-  `job` longtext NOT NULL DEFAULT '[]',
-  `item` longtext NOT NULL,
-  `break` int(11) DEFAULT 0,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
-
-CREATE TABLE IF NOT EXISTS `herbalists` (
+CREATE TABLE  `herbalists` (
   `identifier` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `charidentifier` int(11) NOT NULL,
   `location` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
@@ -154,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `herbalists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 
-CREATE TABLE IF NOT EXISTS `housing` (
+CREATE TABLE  `housing` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `identifier` varchar(255) DEFAULT NULL,
   `charidentifier` int(11) NOT NULL,
@@ -188,17 +153,14 @@ CREATE TABLE `items` (
 	INDEX `FK_items_item_group` (`groupId`) USING BTREE,
 	CONSTRAINT `FK_items_item_group` FOREIGN KEY (`groupId`) REFERENCES `item_group`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT `metadata` CHECK (json_valid(`metadata`))
-)
-COLLATE='utf8mb4_general_ci'
-ENGINE=InnoDB
-ROW_FORMAT=DYNAMIC
-AUTO_INCREMENT=1;
+)COLLATE='utf8mb4_general_ci' ENGINE=InnoDB ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
 
 
-CREATE TABLE IF NOT EXISTS `items_crafted` (
+CREATE TABLE `items_crafted` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `character_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
+  `item_name` VARCHAR(50) COLLATE 'utf8mb4_general_ci' DEFAULT 'item',
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `metadata` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`metadata`)),
   PRIMARY KEY (`id`),
@@ -231,7 +193,7 @@ CREATE TABLE  `loadout` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
 
 
-CREATE TABLE IF NOT EXISTS `mailbox_mails` (
+CREATE TABLE  `mailbox_mails` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sender_id` varchar(50) DEFAULT NULL,
   `sender_firstname` varchar(50) DEFAULT NULL,
@@ -245,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `mailbox_mails` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
-CREATE TABLE IF NOT EXISTS `outfits` (
+CREATE TABLE  `outfits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `identifier` varchar(45) NOT NULL,
   `charidentifier` int(11) DEFAULT NULL,
@@ -256,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `outfits` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 
-CREATE TABLE IF NOT EXISTS `rooms` (
+CREATE TABLE  `rooms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `interiorId` int(11) NOT NULL,
   `inventory` longtext DEFAULT NULL,
@@ -266,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
 
 
-CREATE TABLE IF NOT EXISTS `wagons` (
+CREATE TABLE `wagons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `identifier` varchar(40) NOT NULL,
   `charid` int(11) NOT NULL,
@@ -278,21 +240,6 @@ CREATE TABLE IF NOT EXISTS `wagons` (
   KEY `FK_horses_characters` (`charid`),
   KEY `model` (`model`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
-
-CREATE TABLE `whitelist` (
-	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	`identifier` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_bin',
-	`status` TINYINT(1) NULL DEFAULT NULL,
-	`firstconnection` TINYINT(1) NULL DEFAULT '1',
-	`discordid` VARCHAR(255) NULL DEFAULT '0' COLLATE 'utf8mb4_general_ci',
-	PRIMARY KEY (`id`) USING BTREE,
-	UNIQUE INDEX `identifier` (`identifier`) USING BTREE
-)
-COLLATE='utf8mb4_general_ci'
-ENGINE=InnoDB
-ROW_FORMAT=DYNAMIC
-AUTO_INCREMENT=40
-;
 
 
 CREATE TABLE `stables` (
@@ -319,6 +266,17 @@ CREATE TABLE `horse_complements`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE `whitelist` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`identifier` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_bin',
+	`status` TINYINT(1) NULL DEFAULT NULL,
+	`firstconnection` TINYINT(1) NULL DEFAULT '1',
+	`discordid` VARCHAR(255) NULL DEFAULT '0' COLLATE 'utf8mb4_general_ci',
+	PRIMARY KEY (`id`) USING BTREE,
+	UNIQUE INDEX `identifier` (`identifier`) USING BTREE
+)COLLATE='utf8mb4_general_ci' ENGINE=InnoDB ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
 
 
 INSERT IGNORE INTO `items` (`item`, `label`, `limit`, `can_remove`, `type`, `usable`, `metadata`, `desc`) VALUES
@@ -1263,3 +1221,8 @@ INSERT IGNORE INTO `items` (`item`, `label`, `limit`, `can_remove`, `type`, `usa
 ('woodsaw','Woodsaw',10,1,'item_standard',1,'{}','Used to cut wood.'),
 ('wood_plane','Wood Plane',10,1,'item_standard',1,'{}','A wood plane used for shaping wood.'),
 ('wrench','Wrench',10,1,'item_standard',1,'{}','A wrech used to tighten bolts and other things.');
+
+
+
+ALTER TABLE items
+ADD COLUMN `weight` DECIMAL(20,2) NOT NULL DEFAULT 0.25; /* Weight default of items  */
