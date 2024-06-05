@@ -208,16 +208,6 @@ CREATE TABLE  `outfits` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 
-CREATE TABLE  `rooms` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `interiorId` int(11) NOT NULL,
-  `inventory` longtext DEFAULT NULL,
-  `identifier` varchar(60) NOT NULL,
-  `charidentifier` int(11) NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
-
-
 CREATE TABLE `wagons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `identifier` varchar(40) NOT NULL,
