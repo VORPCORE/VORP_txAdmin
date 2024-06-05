@@ -119,16 +119,6 @@ CREATE TABLE  `herbalists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 
-CREATE TABLE  `housing` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(255) DEFAULT NULL,
-  `charidentifier` int(11) NOT NULL,
-  `inventory` longtext DEFAULT NULL,
-  `furniture` longtext DEFAULT NULL,
-  `open` tinyint(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
-
 CREATE TABLE `item_group` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `description` VARCHAR(255) NOT NULL COMMENT 'Description of Item Group',
