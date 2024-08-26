@@ -29,6 +29,8 @@ tasks:
     ref: master
     subpath: resources
     dest: ./resources/
+  - action: remove_path
+    path: ./resources/[CFX]/[gameplay]/chat
 
 # Download Pre-Made Files
   - action: download_github
@@ -48,3 +50,4 @@ tasks:
 # Clean up temporary files
   - action: remove_path
     path: ./temp
+
