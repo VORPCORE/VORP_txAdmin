@@ -1,5 +1,6 @@
 $engine: 3
 $onesync: on
+$steamRequired: true
 name: VORPCore
 author: vorpcore
 description: VorpCore Official txAdmin recipe! This will set up a base vorp official server.
