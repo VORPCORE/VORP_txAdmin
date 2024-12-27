@@ -105,6 +105,8 @@ CREATE TABLE  `character_inventories` (
   `item_name` VARCHAR(50) COLLATE 'utf8mb4_general_ci' DEFAULT 'item',
   `amount` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `degradation` INT(11) NULL DEFAULT NULL,
+  `percentage` INT(11) NULL DEFAULT NULL,
   KEY `character_inventory_idx` (`character_id`,`inventory_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
@@ -136,6 +138,8 @@ CREATE TABLE `items` (
 	`groupId` INT(10) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Item Group ID for Filtering',
 	`metadata` LONGTEXT NULL DEFAULT '{}' COLLATE 'utf8mb4_bin',
 	`desc` VARCHAR(5550) NOT NULL DEFAULT 'nice item' COLLATE 'utf8mb4_general_ci',
+  `degradation` INT(11) NOT NULL DEFAULT 0 COMMENT 'if 0 Item do not degrade use a positive number (in minutes) to enable degradation min is 1',
+  `weight` DECIMAL(20,2) NOT NULL DEFAULT 0.25, /* Weight default of items  */
 	PRIMARY KEY (`item`) USING BTREE,
 	UNIQUE INDEX `id` (`id`) USING BTREE,
 	INDEX `FK_items_item_group` (`groupId`) USING BTREE,
@@ -1227,6 +1231,3 @@ INSERT IGNORE INTO `items` (`item`, `label`, `limit`, `can_remove`, `type`, `usa
 ('potion', 'Potion', 5, 1, 'item_standard', 1, '{}', 'A potion with magical healing properties.');
 
 
-
-ALTER TABLE items
-ADD COLUMN `weight` DECIMAL(20,2) NOT NULL DEFAULT 0.25; /* Weight default of items  */
