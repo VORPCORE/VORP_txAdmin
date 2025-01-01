@@ -78,25 +78,25 @@ CREATE TABLE `characters` (
 
 
 
-CREATE TABLE `housing`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+CREATE TABLE `housing` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `identifier` varchar(255) DEFAULT NULL,
   `charidentifier` int(11) NOT NULL,
-  `inventory` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `furniture` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `open` tinyint(1) NOT NULL DEFAULT 0,
+  `key` text NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 34307 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
-CREATE TABLE `rooms`  (
+
+
+CREATE TABLE `rooms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `interiorId` int(11) NOT NULL,
-  `inventory` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `identifier` varchar(60) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name` text NOT NULL,
+  `identifier` varchar(60) NOT NULL,
   `charidentifier` int(11) NOT NULL,
+  `key` text NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE TABLE  `character_inventories` (
   `character_id` int(11) DEFAULT NULL,
@@ -1228,6 +1228,42 @@ INSERT IGNORE INTO `items` (`item`, `label`, `limit`, `can_remove`, `type`, `usa
 ('p_lgoc_spinner_v6', 'Spinner V6', 10, 1, 'item_standard', 1, '{}', 'An advanced spinner lure with enhanced spinning action, ideal for large, deep-water fish.'),
 ('animal_crawfish', 'Crawfish', 10, 1, 'item_standard', 1, '{}', 'A small freshwater crustacean.'),
 ('handcuffkey', 'Handcuff Key', 1, 1, 'item_standard', 1, '{}', 'A key used to unlock handcuffs.'),
-('potion', 'Potion', 5, 1, 'item_standard', 1, '{}', 'A potion with magical healing properties.');
-
+('potion', 'Potion', 5, 1, 'item_standard', 1, '{}', 'A potion with magical healing properties.'),
+('hk_1', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A standard house key.'),
+('hk_2', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A standard house key.'),
+('hk_3', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A standard house key.'),
+('hk_101', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_102', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_103', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_104', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_105', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_106', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_107', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_108', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_109', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_110', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_111', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_112', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_113', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_114', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_115', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_116', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_117', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_118', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_119', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_120', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_121', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_122', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_123', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_124', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_125', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_126', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_127', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_128', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_129', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_130', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_131', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_132', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_133', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.'),
+('hk_134', 'House Key', 1, 1, 'item_standard', 1, '{}', 'A specialized house key.');
 
