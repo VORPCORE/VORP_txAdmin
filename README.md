@@ -4,9 +4,6 @@ A Full Fledge [txAdmin](https://txadm.in/) Recipe For [VORP Core](https://github
 
 [VORP Core Documentation](https://vorpcore.mintlify.app/introduction)
 
-## Installation Video 
-[YouTube](https://www.youtube.com/watch?v=ECx70qGzTQI)
-
 ## Framework
 [VORP Core Official Discord Server](https://discord.gg/JjNYMnDKMf)
 
