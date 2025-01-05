@@ -1,30 +1,36 @@
-# TXAdmin RedM Recipe for VorpCore Framework
+# TXAdmin RedM Recipe for VORP Core Framework
 
-A full fledge [txAdmin](https://txadm.in/) recipe for [Vorp Core](http://docs.vorpcore.com:3000/)
+A Full Fledge [txAdmin](https://txadm.in/) Recipe For [VORP Core](https://github.com/VORPCORE)
 
-## Instalation video 
-[youtube](https://www.youtube.com/watch?v=ECx70qGzTQI)
+[VORP Core Documentation](https://vorpcore.mintlify.app/introduction)
 
-## framework
-[Discord VORP](https://discord.gg/23MPbQ6)
+## Installation Video 
+[YouTube](https://www.youtube.com/watch?v=ECx70qGzTQI)
+
+## Framework
+[VORP Core Official Discord Server](https://discord.gg/JjNYMnDKMf)
 
 ## Included Features
- - Vorp Core Premade (Most Stable Releases)
+ - VORP Core Premade (Most Stable Releases)
 	- Jobs
-		- Police
+		- Police / Sheriff
+		- Medic
 		- Postman
 		- Hunting
 		- Fishing
-		- Woodcutter
+		- Mining
+		- Lumberjack
+		- Herbs
 		- Boss Manager
+	- Inventory
 	- Character Creator
 	- Metabolism
 	- Economy
-		- Dollars, Gold
+		- Dollars, Gold, Rol
 		- Bank
 	- Stores
 		- Clothing Stores
-		- Shops
+		- General Stores
 		- Weapons (v2)
 		- Stables (Horses)
 		- Barber Shops
@@ -34,7 +40,7 @@ A full fledge [txAdmin](https://txadm.in/) recipe for [Vorp Core](http://docs.vo
 	- Admin Menu
 	- oxmysql
 - Fixes
-	- Interior fixes
+	- Interior Fixes
 
 ## Dependencies
 -   Windows or Linux (Ubuntu/Debian recommended)
@@ -112,22 +118,21 @@ _Assuming you are SSHed into your machine or have otherwise access._
 ## Configuration
 **Server Configurations**
 - Main server configurations are within `MyRedMServer/txData/vorp_123abc.base/server.cfg`
-- It is highly recommended to edit the server.cfg from txAdmin dashboard to ensure it saves properly.
+- It is highly recommended to edit the `server.cfg` from txAdmin dashboard to ensure it saves properly.
 
 **Resource Configurations**
 
-- All scripts can be edited via their associated config.lua files within  `MyRedMServer/txData/vorp_123abc.base/resources/*`
+- All scripts can be edited via their associated `config.lua` files within  `MyRedMServer/txData/vorp_123abc.base/resources/*`
 
-## Getting help
+## Getting Help
 
-If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
+If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker or join the [VORP Core Official Discord Server](https://discord.gg/JjNYMnDKMf)
 
-## Open source licensing info
+## Open Source Licensing Info
 1. [CONDUCT](CODE_OF_CONDUCT.md)
 2. [LICENSE](LICENSE)
 3. [CONTRIBUTING](CONTRIBUTING.md)
 
-
-## Credits and references
+## Credits and References
 - _Inspired and derived from: https://forum.cfx.re/t/how-to-setup-a-redm-server/918850_
 - _Inspired and derived from: https://docs.fivem.net/docs/server-manual/setting-up-a-server-txadmin/_
