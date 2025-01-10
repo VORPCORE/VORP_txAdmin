@@ -3,7 +3,7 @@ $onesync: on
 $steamRequired: true
 name: VORPCore
 author: vorpcore
-description: VorpCore Official txAdmin recipe! This will set up a base vorp official server.
+description: VORP Core Official txAdmin Recipe! This will set up a base VORP Official Server.
 
 variables:
     steam_webApiKey: "none"
@@ -255,6 +255,12 @@ tasks:
     src: https://github.com/VORPCORE/vorp_walkanim
     ref: main
     dest: ./temp/[VORP]/vorp_walkanim
+
+# Download vorp traffic
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_traffic
+    ref: main
+    dest: ./temp/[VORP]/vorp_traffic
 
 # Download oxmysql
   - action: download_file
