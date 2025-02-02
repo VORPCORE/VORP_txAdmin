@@ -290,7 +290,7 @@ tasks:
 
 # Download syn minigame
   - action: download_github
-    src: https://github.com/outsider31000/syn-minigame
+    src: https://github.com/outsider31000/syn_minigame
     ref: main
     dest: ./resources/[standalone]/syn_minigame
 
