@@ -325,3 +325,5 @@ tasks:
 # Clean up temporary files
   - action: remove_path
     path: ./temp
+  - action: remove_path
+    path: ./tmp
