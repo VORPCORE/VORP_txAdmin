@@ -541,6 +541,7 @@ INSERT IGNORE INTO `items` (`item`, `label`, `limit`, `can_remove`, `type`, `usa
 ('elkantler', 'Elk antler', 20, 1, 'item_standard', 1, '{}', 'A large branched horn-like appendage grown by male elks.'),
 ('elks', 'Elk pelt', 20, 1, 'item_standard', 1, '{}', 'A high-quality pelt obtained from an elk.'),
 ('emerald', 'Emerald', 20, 1, 'item_standard', 1, '{}', 'A precious green gemstone with a sparkling appearance.'),
+('empty_bottle', 'Empty Bottle', 20, 1, 'item_standard', 1, '{}', 'Empty Bottle'),
 ('English_Mace', 'English Mace', 10, 1, 'item_standard', 1, '{}', 'A type of spice commonly used in cooking and herbal medicine.'),
 ('English_Mace_Seed', 'English Mace Seed', 10, 1, 'item_standard', 1, '{}', 'Seeds that can be planted to grow English Mace plants.'),
 ('Evergreen_Huckleberry', 'Evergreen Huckleberry', 10, 1, 'item_standard', 1, '{}', 'A small, dark purple berry known for its tart and sweet flavor.'),
