@@ -39,6 +39,12 @@ tasks:
   - action: remove_path
     path: ./resources/[CFX]/[gameplay]/chat
 
+# Download female body fix
+  - action: download_github
+    src: https://github.com/outsider31000/female_body_fix
+    ref: main
+    dest: ./resources/[standalone]
+
 # Download vorp core
   - action: download_github
     src: https://github.com/VORPCORE/vorp_core-lua
