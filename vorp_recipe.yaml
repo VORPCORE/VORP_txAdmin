@@ -43,7 +43,7 @@ tasks:
   - action: download_github
     src: https://github.com/outsider31000/female_body_fix
     ref: main
-    dest: ./resources/[standalone]
+    dest: ./resources/[standalone]/female_body_fix
 
 # Download vorp core
   - action: download_github
