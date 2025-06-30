@@ -318,6 +318,12 @@ tasks:
     ref: main
     dest: ./resources/[standalone]/lockpick
 
+# Download lockpick
+  - action: download_github
+    src: https://github.com/outsider31000/loadingscreen
+    ref: main
+    dest: ./resources/[standalone]/loadingscreen
+
 # Remove Old Chat
   - action: remove_path
     path: ./resources/[cfx-default]/[gameplay]/chat
