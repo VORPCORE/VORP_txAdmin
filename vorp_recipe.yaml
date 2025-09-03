@@ -45,6 +45,12 @@ tasks:
     ref: main
     dest: ./resources/[standalone]/female_body_fix
 
+# Download vorp lib
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_lib
+    ref: main
+    dest: ./temp/[VORP]/vorp_lib
+
 # Download vorp core
   - action: download_github
     src: https://github.com/VORPCORE/vorp_core-lua
