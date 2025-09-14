@@ -281,13 +281,7 @@ tasks:
     src: https://github.com/AvarianKnight/pma-voice
     ref: main
     dest: ./resources/[standalone]/pma-voice
-
-# Download pma-display
-  - action: download_github
-    src: https://github.com/outsider31000/pma-display
-    ref: main
-    dest: ./resources/[standalone]/pma-display
-
+    
 # Download weathersync
   - action: download_github
     src: https://github.com/kibook/weathersync
