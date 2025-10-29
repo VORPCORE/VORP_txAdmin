@@ -6,6 +6,7 @@ CREATE TABLE  `users` (
   `banned` tinyint(1) DEFAULT NULL,
   `banneduntil` int(10) DEFAULT 0,
   `char` INT DEFAULT 5, /* max characters allowed*/
+  `max_jobs` INT DEFAULT 3, /* max jobs allowed*/
   PRIMARY KEY (`identifier`),
   UNIQUE KEY `identifier` (`identifier`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
@@ -44,13 +45,14 @@ CREATE TABLE `characters` (
   `slots` DECIMAL(20,1) NOT NULL DEFAULT 35.0,
   `job` VARCHAR(50) COLLATE utf8mb4_bin DEFAULT 'unemployed',
   `joblabel` VARCHAR(255) COLLATE utf8mb4_bin DEFAULT 'Unemployed',
+  `multijobs` LONGTEXT COLLATE utf8mb4_bin DEFAULT '{}',
   `meta` VARCHAR(255) COLLATE utf8mb4_bin NOT NULL DEFAULT '{}',
   `firstname` VARCHAR(50) COLLATE utf8mb4_bin DEFAULT ' ',
   `lastname` VARCHAR(50) COLLATE utf8mb4_bin DEFAULT ' ',
   `character_desc` MEDIUMTEXT NOT NULL DEFAULT ' ' COLLATE 'utf8mb4_bin',
-	`gender` VARCHAR(50) NOT NULL DEFAULT ' ' COLLATE 'utf8mb4_bin',
-	`age` INT(11) NOT NULL DEFAULT '0',
-	`nickname` VARCHAR(50) NULL DEFAULT ' ' COLLATE 'utf8mb4_bin',
+  `gender` VARCHAR(50) NOT NULL DEFAULT ' ' COLLATE 'utf8mb4_bin',
+  `age` INT(11) NOT NULL DEFAULT '0',
+  `nickname` VARCHAR(50) NULL DEFAULT ' ' COLLATE 'utf8mb4_bin',
   `skinPlayer` longtext COLLATE utf8mb4_bin DEFAULT NULL,
   `compPlayer` longtext COLLATE utf8mb4_bin DEFAULT NULL,
   `compTints` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_bin',
