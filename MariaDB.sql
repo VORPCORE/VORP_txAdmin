@@ -129,6 +129,21 @@ CREATE TABLE `item_group` (
 
 INSERT INTO `item_group` (`id`, `description`) VALUES (1,"default");
 
+CREATE TABLE `item_rarity` (
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
+    `description` VARCHAR(255) NOT NULL DEFAULT '' COMMENT 'Description of item rarity' COLLATE 'utf8mb4_general_ci',
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE INDEX `uk_item_rarity_name` (`name`) USING BTREE
+) COLLATE='utf8mb4_general_ci' ENGINE=InnoDB;
+
+INSERT INTO `item_rarity` (`id`, `name`, `description`) VALUES
+(1, 'Common', 'Common item'),
+(2, 'Uncommon', 'Uncommon item'),
+(3, 'Rare', 'Rare item'),
+(4, 'Epic', 'Epic item'),
+(5, 'Legendary', 'Legendary item');
+
 CREATE TABLE `items` (
 	`item` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
 	`label` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
@@ -139,14 +154,19 @@ CREATE TABLE `items` (
 	`useExpired` TINYINT(1) NULL DEFAULT 0 COMMENT 'if 0 Item cant be used when expired if 1 can be used also metadata can override this',
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`groupId` INT(10) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Item Group ID for Filtering',
+	`rarityId` INT(10) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Item Rarity ID for filtering',
 	`metadata` LONGTEXT NULL DEFAULT '{}' COLLATE 'utf8mb4_bin',
 	`desc` VARCHAR(5550) NOT NULL DEFAULT 'nice item' COLLATE 'utf8mb4_general_ci',
     `degradation` INT(11) NOT NULL DEFAULT 0 COMMENT 'if 0 Item do not degrade use a positive number (in minutes) to enable degradation min is 1',
+    `durability` INT NULL DEFAULT NULL COMMENT 'Optional default/max durability',
+    `instructions` LONGTEXT NULL DEFAULT NULL COMMENT 'you can add a item instruction like where to find it how to use it' COLLATE 'armscii8_general_ci',
     `weight` DECIMAL(20,2) NOT NULL DEFAULT 0.25, /* Weight default of items  */
 	PRIMARY KEY (`item`) USING BTREE,
 	UNIQUE INDEX `id` (`id`) USING BTREE,
 	INDEX `FK_items_item_group` (`groupId`) USING BTREE,
+	INDEX `FK_items_item_rarity` (`rarityId`) USING BTREE,
 	CONSTRAINT `FK_items_item_group` FOREIGN KEY (`groupId`) REFERENCES `item_group`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT `FK_items_item_rarity` FOREIGN KEY (`rarityId`) REFERENCES `item_rarity`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT `metadata` CHECK (json_valid(`metadata`))
 )COLLATE='utf8mb4_general_ci' ENGINE=InnoDB ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
 
@@ -169,6 +189,7 @@ CREATE TABLE `items_crafted` (
   `item_name` VARCHAR(50) COLLATE 'utf8mb4_general_ci' DEFAULT 'item',
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `metadata` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`metadata`)),
+  `durability` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ID` (`id`),
   KEY `crafted_item_idx` (`character_id`)
@@ -181,10 +202,10 @@ CREATE TABLE  `loadout` (
   `name` varchar(50) DEFAULT NULL,
   `ammo` varchar(255) NOT NULL DEFAULT '{}',
   `components` varchar(255) NOT NULL DEFAULT '{}',
-  `dirtlevel` double DEFAULT 0,
-  `mudlevel` double DEFAULT 0,
-  `conditionlevel` double DEFAULT 0,
-  `rustlevel` double DEFAULT 0,
+  `dirt` DECIMAL(20,6) NULL DEFAULT '0.000000',
+  `soot` DECIMAL(20,6) NULL DEFAULT '0.000000',
+  `degradation` DECIMAL(20,6) NULL DEFAULT '0.000000',
+  `damage` DECIMAL(20,6) NULL DEFAULT '0.000000',
   `used` tinyint(4) DEFAULT 0,
   `used2` tinyint(4) DEFAULT 0,
   `dropped` int(11) NOT NULL DEFAULT 0,
@@ -195,7 +216,8 @@ CREATE TABLE  `loadout` (
   `custom_label` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
   `custom_desc` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
   PRIMARY KEY (`id`),
-  KEY `id` (`id`)
+  KEY `id` (`id`),
+  KEY `identifier` (`identifier`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
 
 
