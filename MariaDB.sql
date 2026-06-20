@@ -235,15 +235,26 @@ CREATE TABLE  `mailbox_mails` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
-CREATE TABLE  `outfits` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(45) NOT NULL,
-  `charidentifier` int(11) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `comps` longtext DEFAULT NULL,
-  `compTints` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+CREATE TABLE `outfits` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`identifier` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_bin',
+	`charidentifier` INT(11) NULL DEFAULT NULL,
+	`title` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`comps` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`compTints` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+
+	PRIMARY KEY (`id`) USING BTREE,
+	INDEX `idx_outfits_character` (`identifier`, `charidentifier`) USING BTREE,
+
+	CONSTRAINT `FK_outfits_characters`
+	FOREIGN KEY (`identifier`, `charidentifier`)
+	REFERENCES `characters` (`identifier`, `charidentifier`)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+ROW_FORMAT=DYNAMIC;
 
 
 CREATE TABLE `wagons` (
